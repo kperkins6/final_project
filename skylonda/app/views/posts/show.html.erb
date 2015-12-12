@@ -30,5 +30,7 @@
   <%= @post.text %>
 </p>
 
+<%= link_to image_tag(@post.image.url(:med)), @post.image.url %>
+<%= link_to document_tag(@post.document.url), @post.document.url %>
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
