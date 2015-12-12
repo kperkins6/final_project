@@ -68,9 +68,10 @@ body {
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/img/#public_images">About</a></li>
-        <li><a href="/img/#shared_with_me">Contact</a></li>
-        <li><a href="/img/#my_images">Reports</a></li>
+        <li><%= link_to 'About', about_index_path %></li>
+        <li><%= link_to 'Contact', contact_index_path %></li>
+        <li><%= link_to 'Reports', reports_index_path %></li>
+        <li><%= link_to 'Legal', rules_index_path %></li>
         <% if user_signed_in? %>
           <li><%= link_to 'Message Boards', boards_path %></li>
         <% end %>

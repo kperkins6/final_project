@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
-  get 'contact/index'
+  get 'contact/index' => 'contact#index'
 
-  get 'reports/index'
+  get 'reports/index' => 'reports#index'
 
-  get 'rules/index'
+  get 'rules/index' => 'rules#index'
 
-  get 'about/index'
+  get 'about/index' => 'about#index'
 
-  get 'welcome/index'
+  get 'welcome/index' => 'welcome#index'
 
   root 'welcome#index'
 
