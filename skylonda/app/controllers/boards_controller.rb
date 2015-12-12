@@ -5,11 +5,13 @@ class BoardsController < ApplicationController
   # GET /boards.json
   def index
     @boards = Board.all
+    @users = User.all
   end
 
   # GET /boards/1
   # GET /boards/1.json
   def show
+    @users = User.all
   end
 
   # GET /boards/new
@@ -25,7 +27,7 @@ class BoardsController < ApplicationController
   # POST /boards.json
   def create
     @board = Board.new(board_params)
-
+    @board.date = Time.now
     respond_to do |format|
       if @board.save
         format.html { redirect_to @board, notice: 'Board was successfully created.' }
