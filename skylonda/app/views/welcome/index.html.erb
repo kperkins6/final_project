@@ -15,8 +15,46 @@ body {
   color: white;
   background-color: white;
 }
+a {
+  color: tan;
+}
 </style>
 <div class="container">
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+  <head>
+  <p id="notice"><%= notice %></p>
+  </head>
+  <body>
+  <% if user_signed_in? %>
+    <h1>Hello <%=current_user.name%>!</h1>
+      <h2><%= link_to 'View Message Boards', boards_path %></h2>
+  <%end%>
+  <h1>Annual Shareholders Meeting</h1>
+  <p>The Skylonda Mutual Water Company Annual Shareholders' Meeting will be held:</p>
+  <p>November 19th 7:30-8:30 pm <br>
+  Calfire station behind Alice's</p>
+
+
+
+  <h1>Emergency Connection</h1>
+
+  <p>SMWC has installed an emergency connection to use SFPUC water during this unprecedented drought. You will be notified prior to the switching in source water, we anticipate it will be within 2 weeks of October 17th 2015. </p>
+
+  <p>The alternative water source will be used until approximately February 2016.</p>
+
+  <p>This water is disinfected using Chloramines, which are marginally preferable for people but will kill fish in aquariums and fish ponds.  You will need to treat water used for fish and more details for that process can be found below.<p>
+
+  <p><a href="http://www.cityofpaloalto.org/faqs/categoryqna.asp?id=61">http://www.cityofpaloalto.org/faqs/categoryqna.asp?id=61</a></p>
+
+  <p><a href="http://www3.epa.gov/region9/water/chloramine.html">http://www3.epa.gov/region9/water/chloramine.html</a> </p>
+
+  <h1>For Residents</h1>
+
+  <p>Residents, please remember to submit your owner's information and response to us at: <A href="mailto:water@skylondawater.com">water@skylondawater.com</a></p>
+
+  <p>Please do your part to conserve water during this dry year. Remember that water  is a precious commodity and that conservation is essential in keeping our water supply the summer and fall.</p>
+
+  <p>We highly recommend that our neigbors be prepared at all times and  follow home emergency guidelines by storing at least 5-8 gallons of water per person per household for water shortage emergencies for personal hygiene and for drinking/cooking.  As with PG&E and for any other unexpected outages, they recommend using home power outage plans as well; stocking battery, radios, candles, flashlights, or even generators.
+
+  <footer>
+  </footer>
 </div>

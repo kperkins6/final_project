@@ -1,3 +1,24 @@
+<style>
+h1 {
+  color: white;
+}
+h2 {
+  color: white;
+}
+h3 {
+  color: white;
+}
+h4 {
+  color: white;
+}
+body {
+  color: white;
+  background-color: white;
+}
+a {
+  color: tan;
+}
+</style>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -86,12 +107,12 @@
       <tr>
         <td>
           <%@users.each do |user| %>
-            <% if @post.user_id == user.id %>
-              <h4><%= user.name %></h4>
+            <% if comment.user_id == user.id %>
+              <h4><%= user.name %>: </h4>
             <% end %>
           <% end %></td>
-        <td><%= comment.text %></td>
-        <td><%= comment.date %></td>
+        <td><h4> <%= comment.text %> </h4></td>
+        <td><h4> <%= comment.date %> </h4></td>
         <% if current_user.id == comment.user_id %>
           <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
           <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -103,4 +124,4 @@
 <% if current_user.id == @post.user_id %>
   <%= link_to 'Edit', edit_post_path(@post) %>
 <% end %> |
-<%= link_to 'Back', board_posts_path(@post.board) %>
+<%= link_to 'Back', board_path(@post.board) %>

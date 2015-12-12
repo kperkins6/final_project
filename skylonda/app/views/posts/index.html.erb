@@ -1,3 +1,25 @@
+<style>
+h1 {
+  color: white;
+}
+h2 {
+  color: white;
+}
+h3 {
+  color: white;
+}
+h4 {
+  color: white;
+}
+body {
+  color: white;
+  background-color: white;
+}
+a {
+  color: tan;
+}
+</style>
+
 <div class="container">
 <p id="notice"><%= notice %></p>
 
@@ -19,10 +41,24 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr>
-        <td><%= post.user %></td>
-        <td><%= post.board %></td>
-        <td><%= post.document %></td>
-        <td><%= post.image %></td>
+        <td><p>
+          <strong>User:</strong>
+          <%@users.each do |user| %>
+            <% if @post.user_id == user.id %>
+              <h4><%= user.name %></h4>
+            <% end %>
+          <% end %>
+        </p></td>
+        <td><p>
+          <strong>Board:</strong>
+          <%@boards.each do |board| %>
+            <% if @post.board_id == board.id %>
+              <h4><%= board.name %></h4>
+            <% end %>
+          <% end %>
+        </p></td>
+        <!-- <td><%= post.document %></td> -->
+        <!-- <td><%= post.image %></td> -->
         <td><%= post.subject %></td>
         <td><%= post.text %></td>
         <td><%= link_to 'Show', post %></td>

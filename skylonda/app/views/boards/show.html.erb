@@ -1,9 +1,30 @@
+<style>
+h1 {
+  color: white;
+}
+h2 {
+  color: white;
+}
+h3 {
+  color: white;
+}
+h4 {
+  color: white;
+}
+body {
+  color: white;
+  background-color: white;
+}
+a {
+  color: tan;
+}
+</style>
 <p id="notice"><%= notice %></p>
 
 <p>
   <strong>User:</strong>
   <%@users.each do |user| %>
-    <% if @post.user_id == user.id %>
+    <% if @board.user_id == user.id %>
       <h4><%= user.name %></h4>
     <% end %>
   <% end %>
@@ -23,9 +44,9 @@
   <strong>Description:   <%= @board.description %></strong>
 </p>
 
-<p>
+<!-- <p>
   <strong>This Board Has Access Level: <%= @board.level %></strong>
-</p>
+</p> -->
 
 <table>
   <thead>
@@ -49,8 +70,8 @@
             <% end %>
           <% end %>
         </td>
-        <td><%= post.document %></td>
-        <td><%= post.image %></td>
+        <!-- <td><%= post.document %></td>
+        <td><%= post.image %></td> -->
         <td><%= post.subject %></td>
         <td><%= post.text %></td>
         <td><%= link_to 'Show', post %></td>
