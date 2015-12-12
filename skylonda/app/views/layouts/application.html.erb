@@ -1,17 +1,98 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+body {
+  background: url("http://static.simpledesktops.com/uploads/desktops/2013/05/16/Storm_Trooper_Minimalist.jpg.625x385_q100.png");
+  background-size: 50%%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: right top;
+  padding-top: 0px;
+}
+</style>
   <title>Skylonda</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand"><%= link_to "Skylonda Water", root_url %></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Other Projects<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="http://104.131.129.214/wladder">Wordladder</a></li>
+            <li><a href="http://104.131.129.214/scorebook">Scorebook</a></li>
+            <li><a href="http://104.131.129.214/ratings">Ratings</a></li>
+            <li><a href="http://104.131.129.214/wbib">Web Bib</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="http://104.131.129.214/">Back to Projects</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/img/#public_images">About</a></li>
+        <li><a href="/img/#shared_with_me">Contact</a></li>
+        <li><a href="/img/#my_images">Reports</a></li>
+        <% if user_signed_in? %>
+          <li><%= link_to 'Message Boards', boards_path %></li>
+        <% end %>
+        <li class="dropdown">
+          <% if user_signed_in? %>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.email %><span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to "Home", root_url %></li>
+            </ul>
+          <% else %>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Not Signed In<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Sign up", new_user_registration_path %></li>
+              <li><%= link_to "Sign in", new_user_session_path %></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to "Home", root_url %></li>
+            </ul>
+          <% end %>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
 </head>
 <body>
-
-<%= yield %>
+<br>
+    <div id="main-container" class="container">
+      <div class="row">
+        <div class="col-xs-9">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
 
 </body>
 </html>
