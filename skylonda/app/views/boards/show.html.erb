@@ -42,7 +42,7 @@
       <tr>
         <td>
           <%@users.each do |user| %>
-            <% if board.user_id == user.id %>
+            <% if @board.user_id == user.id %>
               <h4><%= user.name %></h4>
             <% end %>
           <% end %>
