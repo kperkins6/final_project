@@ -12,6 +12,8 @@ class BoardsController < ApplicationController
   # GET /boards/1.json
   def show
     @users = User.all
+    @post = @board.posts.new
+    @posts = Post.all
   end
 
   # GET /boards/new
