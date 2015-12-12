@@ -6,5 +6,5 @@ class User < ActiveRecord::Base
   has_many :boards
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, password_length: 1...128
 end

@@ -2,7 +2,11 @@
 
 <p>
   <strong>User:</strong>
-  <%= @board.user %>
+  <%@users.each do |user| %>
+    <% if @post.user_id == user.id %>
+      <h4><%= user.name %></h4>
+    <% end %>
+  <% end %>
 </p>
 
 <p>
